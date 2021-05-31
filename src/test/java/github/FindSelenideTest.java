@@ -19,6 +19,9 @@ public class FindSelenideTest {
         firstRepositoryFound.click();
         // проверка: в заголовке встречается selenide/selenide
         $("h1").shouldHave(text("selenide / selenide"));
+        // проверка: в закладках встречается Wiki
+        $("[data-content=Wiki]").shouldHave(text("Wiki"));
+
     }
 
 }

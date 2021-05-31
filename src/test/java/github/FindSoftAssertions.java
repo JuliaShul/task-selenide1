@@ -12,22 +12,18 @@ public class FindSoftAssertions {
   @Test
   void checkWikiPage() {
     // открыть страничку раздела Wiki проекта
-    open("https://github.com/selenide/selenide/wiki");
-
-    // проверить, что в списке страниц (Pages) есть страница SoftAssertions
+    open("https://github.com/selenide/selenide");
+    $("[data-content=Wiki]").click();
+    // ввести в инпут SoftAssertions
     $("[id=wiki-pages-filter]").contextClick().setValue("SoftAssertions");
     // открыть страницу SoftAssertions
-    $("[data-filterable-for=wiki-pages-filter]]").$(byText("SoftAssertions")).click();
+    $(byText("SoftAssertions")).click();
     //проверить, что заголовок содержит SoftAssertions
-    $("h1").shouldHave(text("SoftAssertions"));
+    $(byText("SoftAssertions")).shouldHave(text("SoftAssertions"));
     // проверить, что внутри есть пример кода для JUnit5
+    $("[id=wiki-body]").shouldHave(text("Using JUnit5 extend test class"));
+
 
   }
 
 }
-//    // подвести мышку к первому элементу в области Contributors
-//    $(".BorderGrid").$(byText("Contributors"))
-//            .closest("div").$("li").hover();
-//    // проверка: в появившемся окошечке (overlay)
-//    $$(".Popover-message").findBy(visible)
-//            .shouldHave(text("Andrei Solntsev"));

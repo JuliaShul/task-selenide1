@@ -15,11 +15,9 @@ public class FindSoftAssertions {
     open("https://github.com/selenide/selenide");
     $("[data-content=Wiki]").click();
     // ввести в инпут SoftAssertions
-    $("[id=wiki-pages-filter]").contextClick().setValue("SoftAssertions");
+    $("#wiki-pages-filter").setValue("SoftAssertions");
     // открыть страницу SoftAssertions
     $(byText("SoftAssertions")).click();
-    //проверить, что заголовок содержит SoftAssertions
-    $(byText("SoftAssertions")).shouldHave(text("SoftAssertions"));
     // проверить, что внутри есть пример кода для JUnit5
     $("[id=wiki-body]").shouldHave(text("Using JUnit5 extend test class"));
 
